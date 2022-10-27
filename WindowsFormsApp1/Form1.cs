@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Forms; 
 
 namespace WindowsFormsApp1
 {
@@ -22,6 +22,7 @@ namespace WindowsFormsApp1
         }
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            label13.Text = "";
             string znak1 = "X";
             string znak2 = "O";
             if (e.Y < 200)
@@ -128,6 +129,36 @@ namespace WindowsFormsApp1
                         break;
                         pictureBox1.Enabled = false;
                     }
+                    if (((label1.Text == znak1 && label9.Text == znak1) || (label3.Text == znak1 && label7.Text == znak1) || (label2.Text == znak1 && label8.Text == znak1) || (label4.Text == znak1 && label6.Text == znak1)) && label5.Text == "")
+                    {
+                        label5.Text = znak2;
+                        label12.Text = "Komputer wybrał pole B2";
+                        break;
+                    }
+                    else if (label1.Text == znak1 && label3.Text == znak1 && label2.Text == "")
+                    {
+                        label2.Text = znak2;
+                        label12.Text = "Komputer wybrał pole A2";
+                        break;
+                    }
+                    else if (label1.Text == znak1 && label7.Text == znak1 && label4.Text == "")
+                    {
+                        label4.Text = znak2;
+                        label12.Text = "Komputer wybrał pole B1";
+                        break;
+                    }
+                    else if (label3.Text == znak1 && label9.Text == znak1 && label6.Text == "")
+                    {
+                        label6.Text = znak2;
+                        label12.Text = "Komputer wybrał pole B3";
+                        break;
+                    }
+                    else if (label7.Text == znak1 && label9.Text == znak1 && label8.Text == "")
+                    {
+                        label8.Text = znak2;
+                        label12.Text = "Komputer wybrał pole C2";
+                        break;
+                    }
                     Random generator = new Random();
                     int x = generator.Next(1, 10);
                     switch (x)
@@ -208,7 +239,7 @@ namespace WindowsFormsApp1
                     break;
                 }
             }
-            if (((label1.Text == znak2) && (label2.Text == znak2) && (label3.Text == znak2)) || ((label7.Text == znak2) && (label8.Text == znak2) && (label9.Text == znak2)) || ((label1.Text == znak2) && (label4.Text == znak2) && (label7.Text == znak2)) || ((label3.Text == znak2) && (label6.Text == znak2) && (label9.Text == znak2)) || ((label1.Text == znak2) && (label5.Text == znak2) && (label9.Text == znak2)) || ((label3.Text == znak2) && (label5.Text == znak2) && (label7.Text == znak2)) || ((label2.Text == znak2) && (label5.Text == znak2) && (label8.Text == znak2)) || ((label3.Text == znak2) && (label4.Text == znak2) && (label5.Text == znak2)))
+            if (((label1.Text == znak2) && (label2.Text == znak2) && (label3.Text == znak2)) || ((label7.Text == znak2) && (label8.Text == znak2) && (label9.Text == znak2)) || ((label1.Text == znak2) && (label4.Text == znak2) && (label7.Text == znak2)) || ((label3.Text == znak2) && (label6.Text == znak2) && (label9.Text == znak2)) || ((label1.Text == znak2) && (label5.Text == znak2) && (label9.Text == znak2)) || ((label3.Text == znak2) && (label5.Text == znak2) && (label7.Text == znak2)) || ((label2.Text == znak2) && (label5.Text == znak2) && (label8.Text == znak2)) || ((label4.Text == znak2) && (label5.Text == znak2) && (label6.Text == znak2)))
             {
                 label13.Text = "KOMPUTER WYGRAŁ!";
                 pictureBox1.Enabled = false;
@@ -230,6 +261,7 @@ namespace WindowsFormsApp1
             label11.Text = "";
             label12.Text = "";
             label13.Text = "";
+            label13.Text = "Rozpocznij grę";
         }
     }
 }
